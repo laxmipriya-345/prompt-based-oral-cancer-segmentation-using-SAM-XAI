@@ -1,134 +1,138 @@
-# 🧠 ORAL CANCER SEGMENTATION USING DEEP LEARNING
+# Oral Cancer Lesion Segmentation using Deep Learning, SAM and Explainable AI
+
+## Project Overview
+This project focuses on automated segmentation of oral cancer lesions from medical images using deep learning models integrated with the Segment Anything Model (SAM) and Explainable AI techniques.
+
+The goal of this work is to improve lesion segmentation accuracy and provide interpretable results that can assist clinicians in early diagnosis.
 
 ---
 
-## 📌 OVERVIEW
+## Motivation
+Oral cancer is a major health concern worldwide. Early detection plays an important role in improving survival rates. Manual analysis of medical images can be time-consuming and subjective.
 
-The **Oral Cancer Segmentation System** is a **deep learning-based medical image analysis project** designed to automatically detect and segment cancerous regions in oral cavity images.
-
-This system helps in **early diagnosis of oral cancer**, improving accuracy, reducing manual effort, and assisting medical professionals in clinical decision-making.
-
-The model performs **pixel-level segmentation** to highlight affected cancer regions in medical images.
+This project explores how deep learning and foundation models can improve lesion segmentation and support clinical decision making.
 
 ---
 
-## 🎯 PROBLEM STATEMENT
+## Workflow
 
-Oral cancer is a life-threatening disease that requires early detection for effective treatment. Manual detection using medical imaging is:
-
-- Time-consuming  
-- Prone to human error  
-- Requires expert radiologists  
-
-Therefore, an **AI-based segmentation system** is developed to automatically identify cancerous regions.
-
----
-
-## 🚀 OBJECTIVE
-
-- To develop an AI system for oral cancer detection  
-- To segment cancerous regions from medical images  
-- To improve early diagnosis accuracy  
-- To assist doctors in treatment planning  
-- To build a deep learning-based medical imaging solution  
+1. Dataset Collection
+2. Image Preprocessing
+3. Training Deep Learning Segmentation Models
+4. Integration of Segment Anything Model (SAM)
+5. Prompt Sensitivity Analysis (PSA)
+6. Segmentation Refinement
+7. Model Evaluation
+8. Explainable AI Visualization
 
 ---
 
-## 🧠 PROPOSED SYSTEM (PROMPT DESCRIPTION)
+## Dataset
+The dataset consists of oral cancer lesion images with corresponding ground truth masks.
 
-The system follows this pipeline:
+Each image contains:
+- Input oral lesion image
+- Ground truth segmentation mask
 
-1. **Input Image Collection**  
-   - Oral cavity images are collected from medical datasets  
-
-2. **Preprocessing**
-   - Image resizing  
-   - Normalization  
-   - Noise removal  
-
-3. **Deep Learning Model**
-   - U-Net / CNN-based segmentation model  
-   - Encoder-decoder architecture  
-   - Feature extraction for lesion detection  
-
-4. **Segmentation Output**
-   - Cancerous region highlighted  
-   - Mask generation (binary segmentation)  
-
-5. **Visualization**
-   - Original image vs segmented output comparison  
+These masks are used for training and evaluation of the segmentation models.
 
 ---
 
-## 🏗️ SYSTEM ARCHITECTURE
+## Preprocessing
+The following preprocessing steps were applied:
 
-### 🔹 Data Layer
-- Medical oral cancer image dataset  
-- Annotated masks  
+- Image resizing
+- Pixel normalization
+- Dataset splitting (training and validation)
 
-### 🔹 Processing Layer
-- Image preprocessing  
-- Augmentation (rotation, flipping, scaling)  
-
-### 🔹 Deep Learning Layer
-- U-Net architecture / CNN model  
-- Loss function: Dice Loss / Binary Cross-Entropy  
-- Optimizer: Adam  
-
-### 🔹 Output Layer
-- Segmented cancer region  
-- Prediction mask overlay  
+These steps ensure consistent input for deep learning models.
 
 ---
 
-## 🛠️ TECHNOLOGY STACK
+## Models Used
 
-### 🔹 Frontend (Optional)
-- React.js / HTML / CSS (for UI visualization)
+The following segmentation models were evaluated:
 
-### 🔹 Backend
-- Flask / FastAPI  
+- U-Net
+- U-Net++
+- Attention U-Net
+- Swin U-Net
 
-### 🔹 Deep Learning
-- Python  
-- TensorFlow / Keras / PyTorch  
-- OpenCV  
-- NumPy / Pandas  
+These models were trained and compared based on segmentation performance.
 
 ---
 
-## 📊 MODEL ARCHITECTURE (U-NET)
+## SAM Integration
 
-- **Encoder:** Extracts image features  
-- **Bottleneck:** Captures deep features  
-- **Decoder:** Reconstructs segmentation mask  
-- **Skip Connections:** Preserve spatial information  
+The Segment Anything Model (SAM) was integrated to improve lesion mask generation.
 
----
+SAM generates segmentation masks using prompts such as:
 
-## 📈 WORKFLOW
+- Bounding Box Prompt
+- Point Prompt
+- Mask Prompt
 
-1. Upload oral cancer image  
-2. Image preprocessing  
-3. Load trained segmentation model  
-4. Predict cancer region mask  
-5. Overlay mask on original image  
-6. Display segmented output  
+These prompts guide the model to focus on lesion regions.
 
 ---
 
-## 📸 RESULTS
+## Prompt Sensitivity Analysis (PSA)
 
-The system successfully provides:
+Different prompt types were evaluated to analyze their effect on segmentation accuracy.
 
-- Accurate segmentation of cancerous regions  
-- Improved detection of tumor boundaries  
-- High precision in medical image analysis  
-- Visualization of affected areas  
+Tested prompts:
+- Box Prompt
+- Point Prompt
+- Mask Prompt
+
+Experimental observations showed that **box prompts produced the most accurate segmentation results**, while **point prompts worked well with Attention U-Net refinement**.
 
 ---
 
-## 📷 SAMPLE OUTPUT
+## Evaluation Metrics
 
-```md
-Original Image → Segmented Mask → Overlay Result
+The segmentation models were evaluated using:
+
+- Dice Score
+- Intersection over Union (IoU)
+- Precision
+- Recall
+
+These metrics measure the similarity between predicted masks and ground truth masks.
+
+---
+
+## Explainable AI
+
+To interpret model predictions, Explainable AI techniques were applied:
+
+- Grad-CAM
+- Grad-CAM++
+
+These methods generate heatmaps showing which regions of the image influenced the model's prediction.
+
+This improves transparency and trust in AI-based medical systems.
+
+---
+
+## Results
+
+The integration of SAM with deep learning models significantly improved segmentation accuracy.
+
+Among all models tested, **Attention U-Net combined with SAM produced the best Dice and IoU scores**.
+## Results
+
+### SAM Mask
+![SAM](Attention Unet.png)
+### PSA 
+![PSA](PROMPT.png)
+
+### GradCAM Visualization
+![XAI](GRADCAM.png)
+
+### GradCAM++ Visualization
+![GradCAM++](gradcam++.png)
+
+---
+
+## Project Structure
