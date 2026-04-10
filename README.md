@@ -123,7 +123,7 @@ Among all models tested, **Attention U-Net combined with SAM produced the best D
 ## Results
 
 ### SAM Mask
-![SAM](Attention unet.png)
+![SAM](attention_unet.png)
 
 ### PSA 
 ![PSA](PSA.png)
@@ -136,4 +136,55 @@ Among all models tested, **Attention U-Net combined with SAM produced the best D
 
 ---
 
-## Project Structure
+
+---
+
+## How to Run the Project (Google Colab)
+git clone https://github.com/yourusername/oral-cancer-segmentation.git
+1. Clone the repository
+
+2. Open the notebooks in Google Colab
+
+3. Upload the dataset
+
+4. Run the notebooks step by step:
+
+- preprocessing.ipynb
+- model training notebooks
+- SAM integration notebook
+- XAI visualization notebook
+
+---
+
+## Future Work
+
+Future improvements may include:
+
+- Deployment of the model on Edge AI devices
+- Optimization of models for real-time inference
+- Training with larger clinical datasets
+- Fine-tuning SAM for medical image segmentation
+- Integration with clinical diagnostic systems
+
+---
+
+## Technologies Used
+
+- Python
+- PyTorch
+- OpenCV
+- Google Colab
+- Segment Anything Model (SAM)
+
+---
+
+## Conclusion
+
+This project demonstrates that integrating foundation models such as SAM with deep learning segmentation networks can significantly improve oral cancer lesion detection. Additionally, Explainable AI techniques provide interpretability, making the system more reliable for clinical applications.
+
+---
+
+## Author
+
+Laxmipriya Rout
+
