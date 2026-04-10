@@ -123,15 +123,15 @@ Among all models tested, **Attention U-Net combined with SAM produced the best D
 ## Results
 
 ### SAM Mask
-![SAM](Attention Unet.png)
+![SAM](Attention unet.png)
 ### PSA 
-![PSA](PROMPT.png)
+![PSA](PSA.png)
 
 ### GradCAM Visualization
 ![XAI](GRADCAM.png)
 
 ### GradCAM++ Visualization
-![GradCAM++](gradcam++.png)
+![GradCAM++](GRADCAM++.png)
 
 ---
 
